@@ -8,9 +8,10 @@ import (
 	"expvar"
 	"testing"
 
+	"github.com/pascaldekloe/goe/verify"
+
 	"github.com/gopcua/opcua"
 	"github.com/gopcua/opcua/stats"
-	"github.com/pascaldekloe/goe/verify"
 )
 
 func newExpVarInt(i int64) *expvar.Int {
@@ -22,6 +23,8 @@ func newExpVarInt(i int64) *expvar.Int {
 func TestStats(t *testing.T) {
 	stats.Reset()
 
+	ctx := context.Background()
+
 	srv := NewServer("rw_server.py")
 	defer srv.Close()
 
@@ -29,8 +32,7 @@ func TestStats(t *testing.T) {
 	if err := c.Connect(context.Background()); err != nil {
 		t.Fatal(err)
 	}
-
-	c.Close()
+	c.Close(ctx)
 
 	want := map[string]*expvar.Int{
 		"Dial":             newExpVarInt(1),

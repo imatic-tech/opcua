@@ -15,6 +15,8 @@ import (
 // TestRead performs an integration test to read values
 // from an OPC/UA server.
 func TestReadUnknowNodeID(t *testing.T) {
+	ctx := context.Background()
+
 	srv := NewServer("read_unknow_node_id_server.py")
 	defer srv.Close()
 
@@ -22,12 +24,12 @@ func TestReadUnknowNodeID(t *testing.T) {
 	if err := c.Connect(context.Background()); err != nil {
 		t.Fatal(err)
 	}
-	defer c.Close()
+	defer c.Close(ctx)
 
 	// read node with unknown extension object
 	// This should be OK
 	nodeWithUnknownType := ua.NewStringNodeID(2, "IntValZero")
-	resp, err := c.Read(&ua.ReadRequest{
+	resp, err := c.Read(ctx, &ua.ReadRequest{
 		NodesToRead: []*ua.ReadValueID{
 			{NodeID: nodeWithUnknownType},
 		},
@@ -41,7 +43,7 @@ func TestReadUnknowNodeID(t *testing.T) {
 	}
 
 	// check that the connection is still usable by reading another node.
-	_, err = c.Read(&ua.ReadRequest{
+	_, err = c.Read(ctx, &ua.ReadRequest{
 		NodesToRead: []*ua.ReadValueID{
 			{
 				NodeID: ua.NewNumericNodeID(0, id.Server_ServerStatus_State),

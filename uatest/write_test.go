@@ -1,3 +1,4 @@
+//go:build integration
 // +build integration
 
 package uatest
@@ -26,6 +27,8 @@ func TestWrite(t *testing.T) {
 		{ua.NewStringNodeID(2, "ro_bool"), false, ua.StatusBadUserAccessDenied},
 	}
 
+	ctx := context.Background()
+
 	srv := NewServer("rw_server.py")
 	defer srv.Close()
 
@@ -33,11 +36,11 @@ func TestWrite(t *testing.T) {
 	if err := c.Connect(context.Background()); err != nil {
 		t.Fatal(err)
 	}
-	defer c.Close()
+	defer c.Close(ctx)
 
 	for _, tt := range tests {
 		t.Run(tt.id.String(), func(t *testing.T) {
-			testWrite(t, c, tt.status, &ua.WriteRequest{
+			testWrite(t, ctx, c, tt.status, &ua.WriteRequest{
 				NodesToWrite: []*ua.WriteValue{
 					&ua.WriteValue{
 						NodeID:      tt.id,
@@ -55,15 +58,15 @@ func TestWrite(t *testing.T) {
 				return
 			}
 
-			testRead(t, c, tt.v, tt.id)
+			testRead(t, ctx, c, tt.v, tt.id)
 		})
 	}
 }
 
-func testWrite(t *testing.T, c *opcua.Client, status ua.StatusCode, req *ua.WriteRequest) {
+func testWrite(t *testing.T, ctx context.Context, c *opcua.Client, status ua.StatusCode, req *ua.WriteRequest) {
 	t.Helper()
 
-	resp, err := c.Write(req)
+	resp, err := c.Write(ctx, req)
 	if err != nil {
 		t.Fatalf("Write failed: %s", err)
 	}

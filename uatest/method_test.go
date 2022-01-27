@@ -1,3 +1,4 @@
+//go:build integration
 // +build integration
 
 package uatest
@@ -6,9 +7,10 @@ import (
 	"context"
 	"testing"
 
+	"github.com/pascaldekloe/goe/verify"
+
 	"github.com/gopcua/opcua"
 	"github.com/gopcua/opcua/ua"
-	"github.com/pascaldekloe/goe/verify"
 )
 
 type Complex struct {
@@ -54,6 +56,8 @@ func TestCallMethod(t *testing.T) {
 		},
 	}
 
+	ctx := context.Background()
+
 	srv := NewServer("method_server.py")
 	defer srv.Close()
 
@@ -61,11 +65,11 @@ func TestCallMethod(t *testing.T) {
 	if err := c.Connect(context.Background()); err != nil {
 		t.Fatal(err)
 	}
-	defer c.Close()
+	defer c.Close(ctx)
 
 	for _, tt := range tests {
 		t.Run(tt.req.ObjectID.String(), func(t *testing.T) {
-			resp, err := c.Call(tt.req)
+			resp, err := c.Call(ctx, tt.req)
 			if err != nil {
 				t.Fatal(err)
 			}

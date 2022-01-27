@@ -30,7 +30,7 @@ func main() {
 	if err := c.Connect(ctx); err != nil {
 		log.Fatal(err)
 	}
-	defer c.CloseSessionWithContext(ctx)
+	defer c.CloseSession(ctx)
 
 	id, err := ua.ParseNodeID(*nodeID)
 	if err != nil {
@@ -55,7 +55,7 @@ func main() {
 		},
 	}
 
-	resp, err := c.WriteWithContext(ctx, req)
+	resp, err := c.Write(ctx, req)
 	if err != nil {
 		log.Fatalf("Read failed: %s", err)
 	}
