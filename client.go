@@ -446,7 +446,7 @@ func (c *Client) monitor(ctx context.Context) {
 						// recreate them all if that fails.
 						res, err := c.transferSubscriptions(ctx, subIDs)
 						switch {
-						case err != nil:
+						case err != nil || res.Results == nil:
 							dlog.Printf("transfer subscriptions failed. Recreating all subscriptions: %v", err)
 							subsToRepublish = nil
 							subsToRecreate = subIDs

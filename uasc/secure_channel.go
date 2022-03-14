@@ -212,7 +212,7 @@ func (s *SecureChannel) dispatcher() {
 
 			if !ok {
 				debug.Printf("uasc %d/%d: no handler for %T", s.c.ID(), resp.ReqID, resp.V)
-				continue
+				//continue
 			}
 
 			// HACK
@@ -708,6 +708,17 @@ func (s *SecureChannel) popHandler(reqID uint32) (chan *response, bool) {
 	ch, ok := s.handlers[reqID]
 	if ok {
 		delete(s.handlers, reqID)
+	} else {
+		if len(s.handlers) == 1 { //костыль тот
+			for i := range s.handlers {
+				debug.Printf("no channel for %d, has %d", reqID, i)
+				s.handlers[reqID] = s.handlers[i]
+				ch = s.handlers[reqID]
+				delete(s.handlers, i)
+				delete(s.handlers, reqID)
+			}
+		}
+
 	}
 	return ch, ok
 }
