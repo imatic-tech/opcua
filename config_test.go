@@ -11,10 +11,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gopcua/opcua/ua"
-	"github.com/gopcua/opcua/uacp"
-	"github.com/gopcua/opcua/uapolicy"
-	"github.com/gopcua/opcua/uasc"
+	"github.com/imatic-tech/opcua/ua"
+	"github.com/imatic-tech/opcua/uacp"
+	"github.com/imatic-tech/opcua/uapolicy"
+	"github.com/imatic-tech/opcua/uasc"
 
 	"github.com/pascaldekloe/goe/verify"
 )

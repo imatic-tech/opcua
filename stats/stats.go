@@ -8,7 +8,7 @@ import (
 	"io"
 	"reflect"
 
-	"github.com/gopcua/opcua/ua"
+	"github.com/imatic-tech/opcua/ua"
 )
 
 // stats is the global statistics counter.

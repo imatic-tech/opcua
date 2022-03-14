@@ -12,8 +12,8 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/gopcua/opcua/cmd/service/goname"
-	"github.com/gopcua/opcua/errors"
+	"github.com/imatic-tech/opcua/cmd/service/goname"
+	"github.com/imatic-tech/opcua/errors"
 )
 
 var in, out, pkg string

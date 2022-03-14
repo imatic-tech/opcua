@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/gopcua/opcua/errors"
+	"github.com/imatic-tech/opcua/errors"
 )
 
 // todo(fs): fix mask

@@ -1,3 +1,4 @@
+//go:build integration
 // +build integration
 
 package uatest
@@ -9,9 +10,9 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/gopcua/opcua"
-	"github.com/gopcua/opcua/errors"
-	"github.com/gopcua/opcua/ua"
+	"github.com/imatic-tech/opcua"
+	"github.com/imatic-tech/opcua/errors"
+	"github.com/imatic-tech/opcua/ua"
 )
 
 // Server runs a python test server.

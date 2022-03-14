@@ -15,11 +15,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/gopcua/opcua/debug"
-	"github.com/gopcua/opcua/errors"
-	"github.com/gopcua/opcua/ua"
-	"github.com/gopcua/opcua/uacp"
-	"github.com/gopcua/opcua/uapolicy"
+	"github.com/imatic-tech/opcua/debug"
+	"github.com/imatic-tech/opcua/errors"
+	"github.com/imatic-tech/opcua/ua"
+	"github.com/imatic-tech/opcua/uacp"
+	"github.com/imatic-tech/opcua/uapolicy"
 )
 
 const (

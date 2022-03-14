@@ -5,7 +5,7 @@
 package ua
 
 import (
-	"github.com/gopcua/opcua/id"
+	"github.com/imatic-tech/opcua/id"
 )
 
 // eotypes contains all known extension objects.

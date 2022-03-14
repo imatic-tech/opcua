@@ -1,3 +1,4 @@
+//go:build integration
 // +build integration
 
 package uatest
@@ -8,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gopcua/opcua"
+	"github.com/imatic-tech/opcua"
 )
 
 const (

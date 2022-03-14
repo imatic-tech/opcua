@@ -10,8 +10,8 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/gopcua/opcua/debug"
-	"github.com/gopcua/opcua/errors"
+	"github.com/imatic-tech/opcua/debug"
+	"github.com/imatic-tech/opcua/errors"
 )
 
 // debugCodec enables printing of debug messages in the opcua codec.

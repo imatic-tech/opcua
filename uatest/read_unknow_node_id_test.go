@@ -7,9 +7,9 @@ import (
 	"context"
 	"testing"
 
-	"github.com/gopcua/opcua"
-	"github.com/gopcua/opcua/id"
-	"github.com/gopcua/opcua/ua"
+	"github.com/imatic-tech/opcua"
+	"github.com/imatic-tech/opcua/id"
+	"github.com/imatic-tech/opcua/ua"
 )
 
 // TestRead performs an integration test to read values

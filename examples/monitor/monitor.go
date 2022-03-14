@@ -9,10 +9,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/gopcua/opcua"
-	"github.com/gopcua/opcua/debug"
-	"github.com/gopcua/opcua/monitor"
-	"github.com/gopcua/opcua/ua"
+	"github.com/imatic-tech/opcua"
+	"github.com/imatic-tech/opcua/debug"
+	"github.com/imatic-tech/opcua/monitor"
+	"github.com/imatic-tech/opcua/ua"
 )
 
 func main() {

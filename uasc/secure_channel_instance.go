@@ -10,10 +10,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/gopcua/opcua/errors"
-	"github.com/gopcua/opcua/id"
-	"github.com/gopcua/opcua/ua"
-	"github.com/gopcua/opcua/uapolicy"
+	"github.com/imatic-tech/opcua/errors"
+	"github.com/imatic-tech/opcua/id"
+	"github.com/imatic-tech/opcua/ua"
+	"github.com/imatic-tech/opcua/uapolicy"
 )
 
 type instanceState int

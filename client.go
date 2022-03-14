@@ -18,13 +18,13 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/gopcua/opcua/debug"
-	"github.com/gopcua/opcua/errors"
-	"github.com/gopcua/opcua/id"
-	"github.com/gopcua/opcua/stats"
-	"github.com/gopcua/opcua/ua"
-	"github.com/gopcua/opcua/uacp"
-	"github.com/gopcua/opcua/uasc"
+	"github.com/imatic-tech/opcua/debug"
+	"github.com/imatic-tech/opcua/errors"
+	"github.com/imatic-tech/opcua/id"
+	"github.com/imatic-tech/opcua/stats"
+	"github.com/imatic-tech/opcua/ua"
+	"github.com/imatic-tech/opcua/uacp"
+	"github.com/imatic-tech/opcua/uasc"
 )
 
 // GetEndpoints returns the available endpoint descriptions for the server.

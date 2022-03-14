@@ -15,11 +15,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/gopcua/opcua/errors"
-	"github.com/gopcua/opcua/ua"
-	"github.com/gopcua/opcua/uacp"
-	"github.com/gopcua/opcua/uapolicy"
-	"github.com/gopcua/opcua/uasc"
+	"github.com/imatic-tech/opcua/errors"
+	"github.com/imatic-tech/opcua/ua"
+	"github.com/imatic-tech/opcua/uacp"
+	"github.com/imatic-tech/opcua/uapolicy"
+	"github.com/imatic-tech/opcua/uasc"
 )
 
 // DefaultClientConfig returns the default configuration for a client

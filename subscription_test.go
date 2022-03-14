@@ -3,7 +3,7 @@ package opcua
 import (
 	"testing"
 
-	"github.com/gopcua/opcua/ua"
+	"github.com/imatic-tech/opcua/ua"
 )
 
 // Running tool: /Users/frank/sdk/go1.17.1/bin/go test -benchmem -run=^$ -bench ^BenchmarkUnmonitorItems$ github.com/gopcua/opcua
