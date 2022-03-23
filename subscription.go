@@ -142,6 +142,10 @@ func (s *Subscription) MonitorWithContext(ctx context.Context, ts ua.TimestampsT
 	s.itemsMu.Lock()
 	for i, item := range items {
 		result := res.Results[i]
+		if result.StatusCode != ua.StatusOK {
+			fmt.Println(result, item.ItemToMonitor.NodeID.String())
+			//err = fmt.Errorf("%v %s addres is not exists \n", err, item.ItemToMonitor.NodeID.String())
+		}
 		s.items[result.MonitoredItemID] = &monitoredItem{
 			req: item,
 			res: result,
@@ -308,6 +312,10 @@ func (s *Subscription) StatsWithContext(ctx context.Context) (*ua.SubscriptionDi
 		return nil, err
 	}
 
+	//фикс отваливания питоновского сервака
+	if v.Value() == nil {
+		return nil, errors.New("Server is not supporting statistics")
+	}
 	for _, eo := range v.Value().([]*ua.ExtensionObject) {
 		stat := eo.Value.(*ua.SubscriptionDiagnosticsDataType)
 
